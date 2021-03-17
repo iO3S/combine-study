@@ -90,13 +90,13 @@ Apple은 매해 거듭하여 비동기 프로그래밍 방식을 개선해왔습
 
 일반적으로 UI 이벤트 또는 일부 코드는 비동기식으로 수행하기 때문에 앱 코드 전체가 어떤 순서로 실행될지 가정하는 것은 사실상 불가능합니다. 또한 괜찮은 비동기식 프로그램 작성은 쉽지 않습니다. 비동기 코드와 리소스 공유는 재현이나 추적이 어렵고 궁극적으로 수정하기도 어려운 문제를 일으킬 수 있기 때문이죠. 이러한 문제의 원인은 실제 앱이 각각의 고유한 인터페이스를 가지는 비동기 API들을 사용하는데 있습니다.
 
-![Ch%201%20Hello,%20Combine!%20eab51eeb5c9746a48c4bb13a164af01b/img7.png](Ch%201%20Hello,%20Combine!/img7.png)
+![Ch%201%20Hello,%20Combine!/img7.png](Ch%201%20Hello,%20Combine!/img7.png)
 
 Combine은 이렇게 혼란스러운 비동기 프로그래밍 세계를 질서정연하게 정리하는데 도움이 되는 새로운 언어를 Swift 생태계에 도입하는 녀석입니다. Apple은 Combine의 API를 **Foundation framework** 깊숙히 통합시켰기 때문에 `Timer`, `NotificationCenter`, `Core Framework`와 같은 **Core Data** 들은 이미 Combine을 사용하고 있습니다. 
 
 따라서 Combine을 기존의 코드에 도입하는 것은 아주 쉬울겁니다. 또한 Apple은 놀랍고 새로운 UI Framework인 **SwiftUI**를 설계하여 Combine과 쉽게 통합되도록 했습니다. 여기 Apple이 Combine을 사용하여 반응형 프로그래밍을 사용하는 방법을 알 수 있도록 시스템 계층 구조에서 Combine이 어디에 있는지 보여주는 다이어그램이 있습니다.
 
-![Ch%201%20Hello,%20Combine!%20eab51eeb5c9746a48c4bb13a164af01b/img8.png](Ch%201%20Hello,%20Combine!/img8.png)
+![Ch%201%20Hello,%20Combine!/img8.png](Ch%201%20Hello,%20Combine!/img8.png)
 
 Foundation에서 SwiftUI에 이르기까지 다양한 시스템 Framework는 Combine에 의존하며 "전통적인" API의 대안으로 Combine에 통합하는것을 제공합니다. 
 
@@ -125,7 +125,7 @@ Combine의 세 가지 핵심 요소는 Publisher, Subscriber, Operator 입니다
 
 다음은 `Int` 값을 방출하는 Publisher를 타임 라인에 시각화한 것입니다.
 
-![Ch%201%20Hello,%20Combine!%20eab51eeb5c9746a48c4bb13a164af01b/img9.png](Ch%201%20Hello,%20Combine!/img9.png)
+![Ch%201%20Hello,%20Combine!/img9.png](Ch%201%20Hello,%20Combine!/img9.png)
 
 - 위 그림에서 파란색 상자는 타임 라인에서 특정 시간에 방출되는 값을 나타내고 숫자는 방출된 값을 나타냅니다. 그림 오른쪽에 보이는 것과 같은 수직선(|)은 성공적으로 스트림이 완료되었다는 것을 의미합니다.
 - 위 Publisher가 다룰 수 있는 이벤트 유형은 매우 보편적이기 때문에 모든 종류의 동적 데이터를 나타낼 수 있습니다. 즉, Combine의 Publisher를 사용하여 앱의 모든 작업을 처리할 수 있습니다.
@@ -142,7 +142,7 @@ Combine의 세 가지 핵심 요소는 Publisher, Subscriber, Operator 입니다
 - 여러 Operator를 차례로 호출해서 체인을 연결할 수 있기 때문에 매우 유용합니다. 이들은 매우 독립적으로 구성가능하기 때문에 하나의 구독 사이에서 아주 복잡한 로직을 구현하도록 서로 결합될 수 있습니다.
 - Operator가 퍼즐 조각처럼 서로 잘 맞도록 하는 방법은 간단합니다. Output이 다음 Input 유형과 일치하지 않으면 결합할 수 없습니다.
 
-![Ch%201%20Hello,%20Combine!%20eab51eeb5c9746a48c4bb13a164af01b/img10.png](Ch%201%20Hello,%20Combine!/img10.png)
+![Ch%201%20Hello,%20Combine!/img10.png](Ch%201%20Hello,%20Combine!/img10.png)
 
 - 올바른 Input/Output 유형과 내장된 Error Handling으로 비동기식으로 추상화된 각 작업의 순서를 정의할 수 있다는것은 정말 좋은 부분이다.
 - Operator는 항상 Input/Output을 가지고 있으며 일반적으로는 이를 upstream, downstream이라고 합니다. 이를 통해 공유 상태
@@ -152,7 +152,7 @@ Combine의 세 가지 핵심 요소는 Publisher, Subscriber, Operator 입니다
 
 드디어, Subscription 체인의 끝에 도달했습니다. 모든 Subscription은 Subscribers로 끝납니다. Subscribers는 일반적으로 방출되는 값 또는 완료 이벤트를 통해 "무언가"를 하는 역할입니다. 
 
-![Ch%201%20Hello,%20Combine!%20eab51eeb5c9746a48c4bb13a164af01b/img11.png](Ch%201%20Hello,%20Combine!/img11.png)
+![Ch%201%20Hello,%20Combine!/img11.png](Ch%201%20Hello,%20Combine!/img11.png)
 
 - 현재, Combine은 2개의 데이터 스트림 작업을 간단하게 해줄 수 있는 두 개의 빌트인 Subscriber를 제공합니다.
     - **Sink Subscriber**: 출력 값과 완료 이벤트를 수신하는 Closure를 제공합니다. 이것을 통해 원하는 작업들을 수행시킬 수 있습니다.
@@ -167,7 +167,7 @@ Combine의 세 가지 핵심 요소는 Publisher, Subscriber, Operator 입니다
 - Subscription은 사용자 정의 코드 및 에러처리를 사용하여 비동기 이벤트 체인을 한 번만 선언할 수 있다는 점에서 아주 좋은 개념입니다.
 - 즉, Combine을 사용하여 코드를 작성 할 경우, Subscriptions를 통해 앱 전체 로직을 구현하고, 완성하기만 하면 데이터를 push / pull 하거나 다른 Object를 호출하지 않고도 모든 것이 실행 되도록 할 수 있습니다.
 
-![Ch%201%20Hello,%20Combine!%20eab51eeb5c9746a48c4bb13a164af01b/img12.png](Ch%201%20Hello,%20Combine!/img12.png)
+![Ch%201%20Hello,%20Combine!/img12.png](Ch%201%20Hello,%20Combine!/img12.png)
 
 - 한번 `Subscription` 코드가 컴파일에 성공하고 작성한 코드에 로직 이슈가 없다면 -끝! 설계된대로 `Subscription`은 사용자의 제스쳐, 타이머가 울리거나 `Publisher`들 중 하나를 활성화 시킬 때마다 비동기식으로 "실행" 될겁니다.
 - 또한 `Cancellable`이라는 Combine에서 제공하는 protocol 덕분에 `Subscription`을 메모리로 관리할 필요가 없습니다.
@@ -201,7 +201,7 @@ Combine이 프로젝트에 적합한지 여부를 판단하고 결정하는 것�
 - Combine과 SwiftUI를 동시에 채택하면 약간 다른 이야기가 될 수 있습니다. 이 경우 MVC 아키텍처에서 C를 삭제하는 것이 좋습니다만 이는 Combine과 SwiftUI를 함께 사용하기 때문에 요구되는 것입니다. 이 둘은 같은 공간에 있을 때 더욱 간단하게 작동합니다.
 - Combine과 SwiftUI를 사용한다면 ViewController는  필요없습니다. 데이터 모델에서 View에 이르기까지 반응형 프로그래밍을 사용하는 경우 View를 제어하기 위해 특별한 Controller가 필요하지 않습니다.
 
-![Ch%201%20Hello,%20Combine!%20eab51eeb5c9746a48c4bb13a164af01b/img13.png](Ch%201%20Hello,%20Combine!/img13.png)
+![Ch%201%20Hello,%20Combine!/img13.png](Ch%201%20Hello,%20Combine!/img13.png)
 
 - 더 자세한 내용은 Ch.15 In Practice: SwiftUI & Combine에서 다루겠습니다.
 
@@ -210,7 +210,7 @@ Combine이 프로젝트에 적합한지 여부를 판단하고 결정하는 것�
 - 이 책에서는 먼저 개념부터 시작하여 여러 Operator를 학습하고 시험해보는 단계로 넘어갑니다.
 - 다른 System Framework와 달리, Xcode playground에서 Combine을 학습하며 Chapter를 진행하면 더 쉽고 신속하게 테스트 할 수 있으며, 즉시 결과를 확인 할 수 있습니다.
 
-![Ch%201%20Hello,%20Combine!%20eab51eeb5c9746a48c4bb13a164af01b/img14.png](Ch%201%20Hello,%20Combine!/img14.png)
+![Ch%201%20Hello,%20Combine!/img14.png](Ch%201%20Hello,%20Combine!/img14.png)
 
 # ㅇ. Key Points
 
