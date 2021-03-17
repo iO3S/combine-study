@@ -14,8 +14,7 @@
  - [앱 구조]()
  - [Book Prejects]()
  - [Key Points]()
-
- 
+<br/>
 
 *이 책은 Combine 프레임워크와 Apple 플랫폼에서 Swift를 통해 선언적이고 반응형 앱을 작성하는 방법을 소개합니다.*
 
@@ -25,6 +24,8 @@ Apple은 Combine에 대해서 다음과 같이 설명합니다.
 
 비록 명확하고 요점이 정리된 설명이지만, 처음에는 추상적으로 들릴 수 있습니다. 
 그렇기 때문에 다음 챕터에서 프로젝트를 진행하기 전에 Combine에서 사용하는 도구에들에 대해 간단히 알아봅시다.
+
+<br/>
 
 # ㄱ. 비동기 프로그래밍
 
@@ -69,6 +70,8 @@ Apple은 Combine에 대해서 다음과 같이 설명합니다.
 
 이 코드를 실행할 때 발생하는 것은 시스템 로드 상태에 따라 다르며 프로그램을 실행할 때마다 다른 결과가 나타날 수 있습니다. 비동기적으로 동시에 실행되는 코드를 실행하는 순간 변경 가능한 상태 관리는 필수적입니다.
 
+<br/>
+
 # ㄴ. Foundation, UIKit/AppKit
 
 Apple은 매해 거듭하여 비동기 프로그래밍 방식을 개선해왔습니다. 모바일 앱을 작성하는 데 매우 기본적인 사항이기 때문에 우리 대부분은 이미 그 코드들을 사용하고 있을겁니다. 
@@ -94,6 +97,8 @@ Foundation에서 SwiftUI에 이르기까지 다양한 시스템 Framework는 Com
 
 Combine은 Apple의 framework이므로 `Timer` 또는 `NotificationCenter` 와 같이 이미 테스트로 검증되고 잘 만들어져있는 API를 제거하고 대체하는 것을 목표로 하지 않습니다. Combine 으로 통합되어 서로 비동기식으로 커뮤니케이션하려는 앱의 모든 유형이 Combine을 사용할 수 있도록 합니다.
 
+<br/>
+
 # ㄷ. Combine의 근간
 
 선언형, 반응형 프로그래밍은 새로운 개념이 아닙니다. 꽤 오래전부터 있던 개념이지만 지난 10년 동안 급부상한 개념입니다. 2009년 Microsoft 팀이 .NET 전용 Reactive Extensions(Rx.NET) 라는 라이브러리를 시작하였고, 이를 2012년에 오픈 소스로 만들었습니다. 그 이후로 많은 언어가 그 개념을 사용하기 시작했고, 현재 RxJS, RxKotlin, RxScala, RxPHP 등 과 같은 많은 Rx 표준이 있습니다. 
@@ -101,6 +106,8 @@ Combine은 Apple의 framework이므로 `Timer` 또는 `NotificationCenter` 와 �
 Apple의 플랫폼에는 Rx표준을 구현하는 RxSwift와 같은 ThirdParty Framework가 있습니다. Combine은 Rx와 다르지만 Reactive Stream과 유사한 표준을 구현합니다. Reactive Stream은 Rx와 몇 가지 주요한 차이 점이 있지만 둘 다 대부분의 핵심 개념이 유사합니다. 지금까지 위에서 언급한 Rx Framework를 사용하지 않았더라도 걱정할 필요 없습니다. 
 
 지금까지 반응형 프로그래밍은 Apple 플랫폼, 특히 Swift에서 주요 개념이 아니었습니다. 그러나 Apple은 iOS 13 / macOS Catalina 부터 내장 시스템 framework인 Combine을 통해 반응형 프로그래밍 지원을 Apple 생태계에 추가하게 되었습니다.  iOS 13 / macOS Catalina 이상을 지원하는 앱에서만 Combine을 사용할 수 있는 제약은 있지만, 이는 Apple의 다른 기술들처럼 빠르게 지원이 확산되고 최종적으로는 Combine 기술에 대한 수요가 급증하게 될 것 입니다.
+
+<br/>
 
 # ㄹ. Combine 기초
 
@@ -169,6 +176,8 @@ Combine의 세 가지 핵심 요소는 Publisher, Subscriber, Operator 입니다
 *(RxSwift의 disposeBag과 같은 기능?)*
 - 또는 이 과정을 자동화하기 위해 `Set<AnyCancellable>` 프로퍼티를 설정하고 원하는 만큼 `Subscription`을 집어 넣을 수 있습니다. 이 프로퍼티가 메모리에서 해제되면 그 안의 `Subscription`들도 모두 자동으로 취소 및 해제됩니다.
 
+<br/>
+
 # ㅁ. "일반(standard)" 코드 대비 Combine 코드의 장점은?
 
 너무 당연한 말이지만 Combine 없이도 최고의 앱을 만들 수 있습니다. 다만 Combine을 사용하는 것은 `Core Data`, `URLSession`, `UIKit`과 같은 추상화를 직접 작성하는 것보다 편리하고 안전하며 효율적입니다.
@@ -186,6 +195,8 @@ Combine이 프로젝트에 적합한지 여부를 판단하고 결정하는 것�
 
 이와 같이 대부분의 장점은 안정성과 편의성에 있습니다. Framework가 Apple에서 제공된다는 사실을 생각한다면 Combine 코드 작성에 시간 투자할만하겠죠?
 
+<br/>
+
 # ㅂ. 앱 구조
 
 - Combine은 앱 구조에 영향을 주는 framework가 아닙니다. MVC, MVVM, VIPER 등 어디서든 사용할 수 있습니다.
@@ -197,12 +208,16 @@ Combine이 프로젝트에 적합한지 여부를 판단하고 결정하는 것�
 
 - 더 자세한 내용은 Ch.15 In Practice: SwiftUI & Combine에서 다루겠습니다.
 
+<br/>
+
 # ㅅ. Book Prejects
 
 - 이 책에서는 먼저 개념부터 시작하여 여러 Operator를 학습하고 시험해보는 단계로 넘어갑니다.
 - 다른 System Framework와 달리, Xcode playground에서 Combine을 학습하며 Chapter를 진행하면 더 쉽고 신속하게 테스트 할 수 있으며, 즉시 결과를 확인 할 수 있습니다.
 
 ![Ch%201%20Hello,%20Combine!/img14.png](Ch%201%20Hello,%20Combine!/img14.png)
+
+<br/>
 
 # ㅇ. Key Points
 
