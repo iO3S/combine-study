@@ -2,18 +2,18 @@
 
 ## Table of Contents
 
- - [ㄱ. 비동기 프로그래밍]()
- - [ㄴ. Foundation, UIKit/AppKit]()
- - [ㄷ. Combine의 근간]()
- - [ㄹ. Combine 기초]()
-  1. [Publishers]()
-  2. [Operators]()
-  3. [Subscribers]()
-  4. [Subscriptions]()
- - [ㅁ. "일반(standard)" 코드 대비 Combine 코드의 장점은?]()
- - [ㅂ. 앱 구조]()
- - [ㅅ. Book Prejects]()
- - [ㅇ. Key Points]()
+ - [비동기 프로그래밍]()
+ - [Foundation, UIKit/AppKit]()
+ - [Combine의 근간]()
+ - [Combine 기초]()
+    1. [Publishers]()
+    2. [Operators]()
+    3. [Subscribers]()
+    4. [Subscriptions]()
+ - ["일반(standard)" 코드 대비 Combine 코드의 장점은?]()
+ - [앱 구조]()
+ - [Book Prejects]()
+ - [Key Points]()
 
  
 
